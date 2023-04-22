@@ -67,8 +67,8 @@ if (error_message.dayErr) dayWrapper.dataset.error = "yes";
 
 ### Useful resources
 
-- [ resource 1]CSS Style with Data Attributes - This youtube video helped me on using data-attribute in css
-- [ resource 2]How to use the DATA attribute with JavaScript, HTML and CSS.- This youtube video helped me on using data-attribute in js
+- CSS Style with Data Attributes - This youtube video helped me on using data-attribute in css
+- How to use the DATA attribute with JavaScript, HTML and CSS.- This youtube video helped me on using data-attribute in js
 
 ## Author
 
