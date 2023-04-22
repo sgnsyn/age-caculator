@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="assets/fonts/Poppins-Regular.ttf" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Age calculator app</title>
+    <script src="./js/date.js" defer></script>
+    <script src="./js/validator.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-contianer" id="app" data-error="no">
+      <form action="" id="form">
+        <div class="label-wrapper" id="day-wrapper" data-error="no">
+          <label for="day">Day</label>
+          <input type="number" id="day" maxlength="2" placeholder="DD" />
+          <p class="error" id="error-day">&nbsp;</p>
+        </div>
+        <div class="label-wrapper" id="month-wrapper" data-error="no">
+          <label for="month">Month</label>
+          <input type="number" id="month" maxlength="2" placeholder="MM" />
+          <p class="error" id="error-month">&nbsp;</p>
+        </div>
+        <div class="label-wrapper" id="year-wrapper" data-error="no">
+          <label for="year">Year</label>
+          <input
+            type="number"
+            id="year"
+            min="1000"
+            maxlength="4"
+            placeholder="YYYY"
+          />
+          <p class="error" id="error-year">&nbsp;</p>
+        </div>
+
+        <input type="submit" id="submit" value="" class="btn" />
+      </form>
+      <div class="output-wrapper">
+        <p class="output-para">
+          <span id="year-no" class="purple output_no inline-block">__</span
+          ><span class="black"> years</span>
+        </p>
+        <p class="output-para">
+          <span id="month-no" class="purple output_no inline-block">__</span
+          ><span class="black"> months</span>
+        </p>
+        <p class="output-para">
+          <span id="day-no" class="purple output_no inline-block">__</span
+          ><span class="black"> days</span>
+        </p>
+      </div>
+    </div>
+    <script>
+      const find = (id) => document.getElementById(id);
+      dom = {
+        dayIn: find("day"),
+        monthIn: find("month"),
+        yearIn: find("year"),
+        dayOut: find("day-no"),
+        monthOut: find("month-no"),
+        yearOut: find("year-no"),
+        yearErr: find("error-year"),
+        monthErr: find("error-month"),
+        dayErr: find("error-day"),
+        form: find("form"),
+        submit: find("submit"),
+        app: find("app"),
+        dayWrapper: find("day-wrapper"),
+        monthWrapper: find("month-wrapper"),
+        yearWrapper: find("year-wrapper"),
+      };
+      function outputAnimator(str, duration, root) {
+        root.innerHTML = "";
+        let delay = duration * 0.075;
+        const arr = str.split("");
+        arr.reduce((delay, val) => {
+          const span = document.createElement("span");
+          span.textContent = val;
+          span.classList.add("inline-block");
+          span.style.opacity = "0";
+          span.style.animationName = "bubble";
+          span.style.animationDuration = `${duration}s`;
+          span.style.animationTimingFunction = "ease";
+          span.style.animationDelay = `${delay}s`;
+          span.style.animationFillMode = "forwards";
+          root.append(span);
+          return delay + delay / 2;
+        }, delay);
+      }
+    </script>
+  </body>
+</html>
