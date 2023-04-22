@@ -75,7 +75,18 @@ function validator(day, month, year) {
     }
   }
   returnOnError(error, { day, month, year, error, error_message });
-
+  //Curret year month and year check
+  if (year === thisYear && month > thisMonth) {
+    error_message.month = error3();
+    error_message.dayErr = true;
+    error = true;
+  }
+  if (year === thisYear && month === thisMonth && day > thisDay) {
+    error_message.day = error3();
+    error_message.dayErr = true;
+    error = true;
+  }
+  returnOnError(error, { day, month, year, error, error_message });
   //return date
 
   return { day, month, year, error, error_message };
