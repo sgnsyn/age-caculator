@@ -2,6 +2,8 @@ const MILISECONDS_IN_YEAR = 31536000000;
 const MILISECONDS_IN_MONTH = 2592000000;
 const MILISECONDS_IN_DAY = 86400000;
 const thisYear = parseInt(new Date().getFullYear());
+const thisMonth = parseInt(new Date().getMonth()) + 1;
+const thisDay = parseInt(new Date().getDate());
 
 function dateToMiliseconds(day, month, year) {
   const date = `${year}-${month}-${day}`;
